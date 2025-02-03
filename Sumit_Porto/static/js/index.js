@@ -68,10 +68,10 @@ function SendMail(event) {
 }
 // document.getElementById("myForm").addEventListener("submit", SendMail);
 document.getElementById("resume").addEventListener("click", () => {
-    const pdfUrl = "static/other/Resume.pdf";
+    const pdfUrl = "static/other/My Resume.pdf";
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Sumit Resume.pdf';
+    link.download = '';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
