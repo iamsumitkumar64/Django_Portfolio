@@ -125,11 +125,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS=[BASE_DIR,"static"]
+# STATIC_URL = 'static/'
+# STATICFILES_DIRS=[BASE_DIR,"static"]
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')
+STATIC_URL = '/static/'
 
-MEDIA_URL="/media/"
-MEDIA_ROOT=BASE_DIR/"media"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # This is where collectstatic will collect static files
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # This should not include STATIC_ROOT
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

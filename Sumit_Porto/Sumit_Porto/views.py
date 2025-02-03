@@ -1,7 +1,16 @@
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 from django.shortcuts import render
 from skill.models import skill
 from contact_form.models import dj_form
+
+def check_superuser(request):
+    superuser_exists = User.objects.filter(is_superuser=True).exists()
+    
+    if superuser_exists:
+        return HttpResponse("At least one superuser exists.")
+    else:
+        return HttpResponse("No superuser exists.")
 
 def home(request):
     skill_obj = skill.objects.all()
